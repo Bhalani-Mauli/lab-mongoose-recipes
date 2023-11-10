@@ -17,8 +17,8 @@ mongoose
   })
   .then(() => {
     // Run your code here, after you have insured that the connection was made
-    Recipe.create({
-      title: "Dhokla",
+    return Recipe.create({
+      title: "Dhoklaasdada",
       level: "UltraPro Chef",
       ingredients: [
         "gram-flour",
@@ -32,8 +32,12 @@ mongoose
       image: "https://images.media-allrecipes.com/images/75131.jpg",
       duration: "30",
       creator: "Mauli",
-      created: 10 / 11 / 20323,
+      created: new Date(),
     });
+  })
+  .then((result) => console.log("RESULT =>", result.title))
+  .then(() => {
+    Recipe.insertMany(data);
   })
   .catch((error) => {
     console.error("Error connecting to the database", error);
